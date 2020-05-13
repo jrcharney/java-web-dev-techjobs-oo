@@ -1,0 +1,109 @@
+@startuml
+
+skinparam {
+    classFontStyle bold
+}
+
+package org.launchcode.techjobs_oo {
+    class Location {
+        - id : int
+        - {static} nextId : int = 1
+        ..
+        - value : String
+        __
+        + Location()
+        + Location(value : String)
+        + toString() : String
+        + equals(o : Object) : boolean
+        + hashCode() : int
+        .. Getters and Setters ..
+        + getId() : int
+        + getValue() : String
+        + setValue(value : String ) : void
+    }
+    class CoreCompetency {
+        - id : int
+        - {static} nextId : int = 1
+        ..
+        - value : String
+        __
+        + CoreCompetency()
+        + CoreCompetency(value : String)
+        + toString() : String
+        + equals(o : Object) : boolean
+        + hashCode() : int
+        .. Getters and Setters ..
+        + getId() : int
+        + getValue() : String
+        + setValue(value : String ) : void
+    }
+    class PositionType {
+        - id : int
+        - {static} nextId : int = 1
+        ..
+        - value : String
+        __
+        + PositionType()
+        + PositionType(value : String)
+        + toString() : String
+        + equals(o : Object) : boolean
+        + hashCode() : int
+        .. Getters and Setters ..
+        + getId() : int
+        + getValue() : String
+        + setValue(value : String ) : void
+    }
+    class Employer {
+        - id : int
+        - {static} nextId : int = 1
+        ..
+        - value : String
+        __
+        + Employer()
+        + Employer(value : String)
+        + toString() : String
+        + equals(o : Object) : boolean
+        + hashCode() : int
+        .. Getters and Setters ..
+        + getId() : int
+        + getValue() : String
+        + setValue(value : String ) : void
+    }
+    class Job {
+        - id : int
+        - {static} nextId : int = 1
+        ..
+        - name : String
+        - employer : Employer
+        - location : Location
+        - positionType : PositionType
+        - coreCompetency : CoreCompetency
+        __
+        + Job()
+        + Job(name : String, employer : Employer, location : Location, positionType : PositionType, coreCompetency : CoreCompetency)
+        .. Getters and Setters ..
+        + getId() : int
+        + setName(name : String) : void
+        + getName() : void
+        + setEmployer(employer : Employer) : void
+        + getEmployer() : void
+        + setLocation(location : Location) : void
+        + getLocation() : void
+        + setPositionType(positionType : PositionType) : void
+        + getPositionType() : void
+        + setCoreCompetency(coreCompetency : CoreCompetency) : void
+        + getCoreCompetency() : void
+    }
+    class Main {
+        + {static} main(String[] args) : void
+    }
+
+    Job *-- Employer
+    Job *-- Location
+    Job *-- PositionType
+    Job *-- CoreCompetency
+    Main o-- Job
+}
+
+hide circle
+@enduml
