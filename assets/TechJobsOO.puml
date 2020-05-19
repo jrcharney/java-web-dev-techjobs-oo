@@ -2,73 +2,52 @@
 
 skinparam {
     classFontStyle bold
+    linetype ortho
 }
 
 package org.launchcode.techjobs_oo {
-    class Location {
-        - id : int
-        - {static} nextId : int = 1
+    abstract class JobField {
+        # id : int
+        # {static} nextId : int = 1
         ..
-        - value : String
+        # value : String
         __
+        + toString() : String
+        + hashCode() : int
+        .. Getters and Setters ..
+        + getId() : int
+        + getValue() : String
+        + setValue(value : String ) : void
+    }
+
+    class Location {
         + Location()
         + Location(value : String)
-        + toString() : String
-        + equals(o : Object) : boolean
-        + hashCode() : int
-        .. Getters and Setters ..
-        + getId() : int
-        + getValue() : String
-        + setValue(value : String ) : void
-    }
-    class CoreCompetency {
-        - id : int
-        - {static} nextId : int = 1
         ..
-        - value : String
-        __
+        + equals(o : Object) : boolean
+    }
+
+    class CoreCompetency {
         + CoreCompetency()
         + CoreCompetency(value : String)
-        + toString() : String
-        + equals(o : Object) : boolean
-        + hashCode() : int
-        .. Getters and Setters ..
-        + getId() : int
-        + getValue() : String
-        + setValue(value : String ) : void
-    }
-    class PositionType {
-        - id : int
-        - {static} nextId : int = 1
         ..
-        - value : String
-        __
+        + equals(o : Object) : boolean
+    }
+
+    class PositionType {
         + PositionType()
         + PositionType(value : String)
-        + toString() : String
-        + equals(o : Object) : boolean
-        + hashCode() : int
-        .. Getters and Setters ..
-        + getId() : int
-        + getValue() : String
-        + setValue(value : String ) : void
-    }
-    class Employer {
-        - id : int
-        - {static} nextId : int = 1
         ..
-        - value : String
-        __
+        + equals(o : Object) : boolean
+    }
+
+    class Employer {
         + Employer()
         + Employer(value : String)
-        + toString() : String
+        ..
         + equals(o : Object) : boolean
-        + hashCode() : int
-        .. Getters and Setters ..
-        + getId() : int
-        + getValue() : String
-        + setValue(value : String ) : void
     }
+
     class Job {
         - id : int
         - {static} nextId : int = 1
@@ -98,12 +77,18 @@ package org.launchcode.techjobs_oo {
         + {static} main(String[] args) : void
     }
 
-    Job *-- Employer
-    Job *-- Location
-    Job *-- PositionType
-    Job *-- CoreCompetency
-    Main o-- Job
+    JobField <|-- Employer
+    JobField <|-- Location
+    JobField <|-- PositionType
+    JobField <|-- CoreCompetency
+
+    Job *-up- Employer
+    Job *-up- Location
+    Job *-up- PositionType
+    Job *-up- CoreCompetency
+    Main o-up- Job
 }
 
 hide circle
+hide empty attributes
 @enduml
