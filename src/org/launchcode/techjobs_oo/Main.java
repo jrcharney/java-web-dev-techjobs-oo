@@ -33,7 +33,8 @@ public class Main {
         jobs.add(job3);
 
         for (Job job : jobs){
-            System.out.println(job);
+            System.out.println(job);                // Apparently running this
+            //System.out.println(job.toString());   // is the same as this.
         }
     }
 

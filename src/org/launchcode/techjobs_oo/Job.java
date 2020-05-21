@@ -46,10 +46,14 @@ public class Job {
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
-
+    public int getId() {
+        return id;
+    }
 
     public String getName() {
-        return name;
+        // Since we don't have a name class with it's own toString(), let's do this.
+        //return this.name;
+        return this.name;
     }
 
     public void setName(String name) {
@@ -88,17 +92,15 @@ public class Job {
         this.coreCompetency = coreCompetency;
     }
 
-    public int getId() {
-        return id;
-    }
-
     @Override
     public String toString(){
+        // TODO: Do this as a HashMap later.
+        String dna = "Data not available";
         return "\n" +
-        "ID: " + getId() + "\n" +
-        "Name:" + getName() + "\n" +
-        "Employer: " + getEmployer() + "\n" +
-        "Position Type" + getPositionType() + "\n" +
-        "Core Competency: " + getCoreCompetency() + "\n";
+        "ID: "              + this.id             + "\n" +
+        "Name: "            + ((this.name == null) ? dna : this.name)          + "\n" +
+        "Employer: "        + ((this.employer == null) ? dna : this.employer)       + "\n" +
+        "Position Type: "   + ((this.positionType == null) ? dna : this.positionType)   + "\n" +
+        "Core Competency: " + ((this.coreCompetency == null) ? dna : this.coreCompetency) + "\n";
     }
 }

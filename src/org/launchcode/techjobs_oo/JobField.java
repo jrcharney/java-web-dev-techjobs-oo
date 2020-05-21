@@ -30,7 +30,11 @@ public abstract class JobField {
 
     @Override
     public String toString(){
-        return value;
+        if( this.value == null ||  this.value.isEmpty() ){
+            return "Data not available";
+        } else {
+            return this.value;
+        }
     }
 
     @Override
