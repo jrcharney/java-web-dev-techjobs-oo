@@ -68,11 +68,29 @@ public class JobTest {
                 "ID: " + 2 + "\n" +     /* I empty_job.getId() */
                 "Name: " + dna + "\n" +
                 "Employer: " + dna + "\n" +
+                "Location: " + dna + "\n" +
                 "Position Type: " + dna + "\n" +
                 "Core Competency: " + dna + "\n";
         //System.out.println(empty_job.getCoreCompetency());
         //assertEquals(dna, empty_job.getEmployer().toString());
         assertEquals(expected,empty_job.toString());
+    }
+
+    @Test
+    public void testForLocation(){
+        assertEquals("Desert",awesome_job.getLocation().getValue());
+    }
+
+    @Test
+    public void testForAllFieldPopulation(){
+        String expected = "\n" +
+                "ID: " + 1 + "\n" +     /* I empty_job.getId() */
+                "Name: " + "Product tester" + "\n" +
+                "Employer: " + "ACME" + "\n" +
+                "Location: " + "Desert" + "\n" +
+                "Position Type: " + "Quality control" + "\n" +
+                "Core Competency: " + "Persistence" + "\n";
+        assertEquals(expected,awesome_job.toString());
     }
 
 }

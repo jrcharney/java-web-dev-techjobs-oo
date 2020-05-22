@@ -41,4 +41,12 @@ public abstract class JobField {
     public int hashCode(){
         return Objects.hash(getId());
     }
+
+    @Override
+    public boolean equals(Object o) {  // Two objects are equal if they have the same id.
+        if (this == o) return true;
+        if (!(o instanceof JobField)) return false;
+        JobField job_field = (JobField) o;
+        return getId() == job_field.getId();
+    }
 }
