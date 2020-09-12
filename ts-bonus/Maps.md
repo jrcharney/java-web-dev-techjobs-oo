@@ -16,9 +16,10 @@ Think of `new Array()` in JavaScript as being equivalent in TypeScript as `new M
 Similarly, think of `new Object()` in Javascript as being equivalent in TypeScript as `new Map<string,any|undefined>`.
 
 The `any|undefined` part is used to represent the possible types that the value could support. When we use a pipe character to note more than one data type can be used, this is what is called a **union**, which is another important topic that was not covered in LC101 Unit 1, that denotes multiple data types can be used. While `any` is a datatype in TypeScript that would describe any `string`, `number`, `boolean`, User-Defined type, etc., it does not include `undefined` which permits no value be entered into the value field.
-Using `any|undefined` is much better than using `any?` which would allow the value to not exist, which would be problematic later if we needed to set a value with a key, because then the value field for that entry would not exist.
-If you omit the `|undefined` part (note the leading pipe character), the value MUST have a value when setting a new entry, which is fine because typically when we create a new entry, we want to set a key and a value not just a key for a value later.
 
+Using `any|undefined` is much better than using `any?` which would allow the value to not exist, which would be problematic later if we needed to set a value with a key, because then the value field for that entry would not exist.
+
+If you omit the `|undefined` part (note the leading pipe character), the value MUST have a value when setting a new entry, which is fine because typically when we create a new entry, we want to set a key and a value not just a key for a value later.
 
 ## A Map Example
 For our first `Map` example, we want to set our key to a `string` and our value to a `number`.
