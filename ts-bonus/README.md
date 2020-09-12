@@ -17,9 +17,9 @@ I've decided to change the `CoreCompetency` class to `Skill`. (You'ld wish they 
 I also decided to use the `Map` object in `toString()` in the `Job` class in `Job.ts`.
 This was an important structure that was not covered in LC101 Unit 1 that is a must know when you start to use `HashMap`s in Java in LC101 Unit 2.
 
-I wrote something on how to use Maps in [this document](./Maps.md). Take a look on how it compares to JavaScript and Java.
+I wrote something on how to use **Maps** in [this document](./Maps.md). Take a look on how it compares to JavaScript and Java.
 
-Also, when you compile TypeScript
+Also, when you compile TypeScript, you will need to either create a `tsconfig.json` file ( which can be created using `tsc --init`) to set the `lib` variable to support a newer version of ECMAScript (like ES2017) and the DOM library.  You'll see this below in the compiling instructions.
 
 My code might not be perfect, but does try to the best of my ability to try to recreate the same experience in another language.
 

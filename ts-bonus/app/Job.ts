@@ -90,13 +90,18 @@ export class Job {
         ]);
 
         // NOTE: When we want to use our data from Maps, we need to convert them to arrays using Array.from()
-        // Find the longest key
-        let longest : string = Array.from(fields.keys()).reduce((acc,idx) => {return (acc.length > idx.length) ? acc : idx;});
+        // Find the length of the longest key
+        let longest : number = Array.from(fields.keys()).reduce( (acc,idx) => acc.length > idx.length ? acc : idx, "").length;
+        // Print out our records in a spaced format.
+        let results : string = Array.from(fields.entries()).map(([label,field]) => `${label.padEnd(longest)} : ${(field === null) ? dna : field}`).join(`\n`);
+        /*
+        // I'll kee this as a comment but here is what is happening.
         let results : string = Array.from(fields.entries()).map(([name,value]) => {
             let label : string = name.padEnd(longest.length); // Note: The default character for padEnd is the space
             let field : any    = (value === null) ? dna : value;
             return `${label} : ${field}`;
         }).join(`\n`);
+        */
         return `\n${results}\n`;
     }
 }

@@ -58,15 +58,33 @@ var Job = /** @class */ (function () {
             ["Position Type", this.positionType],
             ["Skill", this.skill]
         ]);
+        /*
+        // I tried using this, but I keept getting TS2339. Asserting datatypes added a TS2322. So let's stick with Maps for now.
+        let fields : Record<string, any | undefined> = {
+            "ID"            : this.id,
+            "Name"          : this.name,
+            "Employer"      : this.employer,
+            "Location"      : this.location,
+            "Position Type" : this.positionType,
+            "Skill"         : this.skill
+        };
+        */
         // NOTE: When we want to use our data from Maps, we need to convert them to arrays using Array.from()
-        // Find the longest key
-        var longest = Array.from(fields.keys()).reduce(function (acc, idx) { return (acc.length > idx.length) ? acc : idx; });
+        // Find the length of the longest key
+        var longest = Array.from(fields.keys()).reduce(function (acc, idx) { return acc.length > idx.length ? acc : idx; }, "").length;
+        // Print out our records in a spaced format.
         var results = Array.from(fields.entries()).map(function (_a) {
-            var name = _a[0], value = _a[1];
-            var label = name.padEnd(longest.length); // Note: The default character for padEnd is the space
-            var field = (value === null) ? dna : value;
-            return label + " : " + field;
+            var label = _a[0], field = _a[1];
+            return label.padEnd(longest) + " : " + ((field === null) ? dna : field);
         }).join("\n");
+        /*
+        // I'll kee this as a comment but here is what is happening.
+        let results : string = Array.from(fields.entries()).map(([name,value]) => {
+            let label : string = name.padEnd(longest.length); // Note: The default character for padEnd is the space
+            let field : any    = (value === null) ? dna : value;
+            return `${label} : ${field}`;
+        }).join(`\n`);
+        */
         return "\n" + results + "\n";
     };
     Job.nextId = 1;
